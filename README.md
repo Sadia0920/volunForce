@@ -17,3 +17,4 @@
 - react-icons
 - lottie-react
 - motion
+- react-helmet-async

@@ -5,6 +5,7 @@ import React, { useContext, useState } from 'react'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 export default function Register() {
   const {createUser,setUser,updateUserInfo} = useContext(AuthContext);
@@ -76,7 +77,10 @@ export default function Register() {
   }
   return (
     <div className='my-7'>
-      <div className="hero">
+    <Helmet>
+      <title>VolunForce | Register</title>
+    </Helmet>
+    <div className="hero">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <Lottie animationData={registerLottieData}></Lottie>

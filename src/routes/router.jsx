@@ -7,6 +7,10 @@ import AddVolunteerNeedPost from './../pages/AddVolunteerNeedPost';
 import ManageMyPosts from './../pages/ManageMyPosts';
 import Login from './../pages/Login';
 import Register from './../pages/Register';
+import PrivateRoute from './PrivateRoute';
+import VolunteerNeedPostDetails from "../pages/VolunteerNeedPostDetails";
+import BeAVolunteer from "../pages/BeAVolunteer";
+import UpdatePost from "../pages/UpdatePost";
 
 const router = createBrowserRouter([
     {
@@ -24,11 +28,23 @@ const router = createBrowserRouter([
         },
         {
             path: "/addVolunteerNeedPost",
-            element: <AddVolunteerNeedPost></AddVolunteerNeedPost>,
+            element: <PrivateRoute><AddVolunteerNeedPost></AddVolunteerNeedPost></PrivateRoute>,
         },
         {
             path: "/manageMyPosts",
-            element: <ManageMyPosts></ManageMyPosts>,
+            element: <PrivateRoute><ManageMyPosts></ManageMyPosts></PrivateRoute>,
+        },
+        {
+            path: "/volunteerNeedPostDetails",
+            element: <PrivateRoute><VolunteerNeedPostDetails></VolunteerNeedPostDetails></PrivateRoute>,
+        },
+        {
+            path: "/beAVolunteer",
+            element: <PrivateRoute><BeAVolunteer></BeAVolunteer></PrivateRoute>,
+        },
+        {
+            path: "/updatePost",
+            element: <PrivateRoute><UpdatePost></UpdatePost></PrivateRoute>,
         },
         {
             path: "/login",

@@ -5,6 +5,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 export default function Login() {
   const {signInUser,signInWithGoogle,setUser} = useContext(AuthContext);
@@ -65,8 +66,11 @@ export default function Login() {
   
   return (
     <div className='my-7'>
-      <div className="hero">
-  <div className="hero-content flex-col lg:flex-row-reverse">
+    <Helmet>
+      <title>VolunForce | Login</title>
+    </Helmet>
+    <div className="hero">
+    <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <Lottie animationData={loginLottieData}></Lottie> 
     </div>
