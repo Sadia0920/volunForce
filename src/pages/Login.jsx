@@ -1,16 +1,68 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
 import Lottie from "lottie-react";
 import loginLottieData from "../assets/animation/Animation-2.json"
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../provider/AuthProvider';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from 'sweetalert2';
 
 export default function Login() {
+  const {signInUser,signInWithGoogle,setUser} = useContext(AuthContext);
+  const navigate = useNavigate()
+  const [showPassword,setShowPassword]=useState(false)
+
   const handleLogin = (event) => {
     event.preventDefault()
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password)
+    const user = {email,password}
+    console.log(user);
+
+    // SignInUser
+    signInUser(email,password)
+    .then(result => {
+      console.log(result.user)
+      setUser(result.user)
+      Swal.fire({
+        title: 'Success',
+        text: 'Login successfully',
+        icon: 'success',
+        confirmButtonText: 'Done'
+      })
+      navigate('/')
+      form.reset()
+    })
+    .catch(error => {
+      console.log(error.message)
+      setUser(null)
+      Swal.fire({
+        title: 'Error',
+        text: error.message,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+    })
   }
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+    .then(result => {
+      console.log(result.user)
+      setUser(result.user)
+      Swal.fire({
+        title: 'Success',
+        text: 'Login successfully',
+        icon: 'success',
+        confirmButtonText: 'Done'
+      })
+      navigate('/')
+    })
+    .catch(error => {
+      console.log(error)
+      setUser(null)
+    })
+  }
+  
   return (
     <div className='my-7'>
       <div className="hero">
@@ -27,11 +79,12 @@ export default function Login() {
           </label>
           <input type="email" placeholder="Email*" name='email' className="input input-bordered" required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password*" name='password' className="input input-bordered" required />
+          <input type={showPassword?'text':'password'}   placeholder="password*" name='password' className="input input-bordered" required />
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[250px] lg:ml-[300px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
@@ -42,7 +95,7 @@ export default function Login() {
         </div>
       </form>
       <div className="divider w-11/12 mx-auto">OR</div>
-      <button className="btn bg-green-800 text-white w-11/12 mx-auto mt-6"><i className="fa-brands fa-google"></i>Google Login</button>
+      <button onClick={handleGoogleLogin} className="btn bg-green-800 text-white w-11/12 mx-auto mt-6"><i className="fa-brands fa-google"></i>Google Login</button>
     </div>
   </div>
 </div>

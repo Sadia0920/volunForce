@@ -1,17 +1,78 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
 import Lottie from "lottie-react";
 import registerLottieData from "../assets/animation/Animation-2.json"
+import React, { useContext, useState } from 'react'
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from 'sweetalert2';
+import { AuthContext } from '../provider/AuthProvider';
 
 export default function Register() {
-  const handleRegister = (event) => {
+  const {createUser,setUser,updateUserInfo} = useContext(AuthContext);
+  const navigate = useNavigate()
+  const [showPassword,setShowPassword]=useState(false)
+  const [errorMessage,setErrorMessage]=useState('')
+
+  const handleCreateUser = (event) => {
     event.preventDefault()
     const form = event.target;
     const name = form.name.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name,photo,email,password)
+    const newUser = {name,photo,email,password}
+    console.log(newUser);
+
+    setErrorMessage('')
+
+     const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+     if(!regex.test(password)){
+      setErrorMessage('Please give a valid password with at lease one Uppercase, one Lowercase and length must be 6 character or more.')
+      Swal.fire({
+        title: 'Error',
+        text: errorMessage,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+      return;
+    }
+
+    // CreateUser
+    createUser(email,password)
+    .then(result => {
+      setUser(result.user)
+      form.reset();
+      navigate('/')
+      Swal.fire({
+        title: 'Success',
+        text: 'Register Successfully',
+        icon: 'success',
+        confirmButtonText: 'Done'
+      })
+      // UpdateUser
+    const profile = {
+      displayName: name,
+      photoURL: photo
+    }
+    updateUserInfo(profile)
+    .then((res)=>{
+      // console.log(res.user)
+    })
+    .catch(error => {
+      setErrorMessage(error.message)
+    })
+    })
+    .catch(error => {
+      // console.log(error.message)
+      setErrorMessage(error.message)
+      setUser(null)
+      Swal.fire({
+        title: 'Error',
+        text: error.message,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+    })
   }
   return (
     <div className='my-7'>
@@ -22,7 +83,7 @@ export default function Register() {
     </div>
     <div className="card w-full">
     <h1 className="text-3xl text-center pt-7 font-bold">Register now!</h1>
-      <form onSubmit={handleRegister} className="card-body">
+      <form onSubmit={handleCreateUser} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>
@@ -41,11 +102,12 @@ export default function Register() {
           </label>
           <input type="email" placeholder="Your Email*" name='email' className="input input-bordered" required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="Password*" name='password' className="input input-bordered" required />
+          <input type={showPassword?'text':'password'}  placeholder="Password*" name='password' className="input input-bordered" required />
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[250px] lg:ml-[300px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
           
         </div>
         <div className="form-control mt-6">
@@ -53,8 +115,6 @@ export default function Register() {
           <p className='text-center mt-4'>Already have an account? <NavLink to='/login' className='text-green-800'>Login</NavLink></p>
         </div>
       </form>
-      <div className="divider w-11/12 mx-auto">OR</div>
-      <button className="btn bg-green-800 text-white w-11/12 mx-auto mt-6"><i className="fa-brands fa-google"></i>Google Login</button>
     </div>
   </div>
 </div>
