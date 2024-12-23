@@ -19,7 +19,7 @@ export default function Navbar() {
       })
     }
   return (
-    <div className='bg-[#A8E05C] text-[rgb(51,51,51)]'>
+    <div className='bg-[#A8E05C] text-[rgb(51,51,51)] sticky top-0 z-10'>
     <div className="navbar w-10/12 mx-auto">
     <div className="navbar-start">
     <div className="dropdown">
@@ -88,7 +88,7 @@ export default function Navbar() {
   data-tooltip-place="top">
       <img className='w-8 h-8 rounded-full' src={user.photoURL} alt="" />
       </a>
-      <Link onClick={handleSignOut} className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">LogOut</Link>
+      <Link onClick={handleSignOut} className="btn ml-4">LogOut</Link>
       </>
       :
       <>
@@ -99,6 +99,7 @@ export default function Navbar() {
     <ThemeController></ThemeController>
   </div>
 </div>
+<Tooltip id="my-tooltip"/> 
     </div>
   )
 }
