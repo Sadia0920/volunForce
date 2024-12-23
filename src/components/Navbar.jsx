@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import ThemeController from './ThemeController'
 
 export default function Navbar() {
   return (
@@ -56,6 +57,7 @@ export default function Navbar() {
   <div className="navbar-end">
     <Link to='/login' className="btn mr-2">Login</Link>
     <Link to='/register' className="btn">Register</Link>
+    <ThemeController></ThemeController>
   </div>
 </div>
     </div>
