@@ -42,8 +42,9 @@ const router = createBrowserRouter([
             loader: ({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
         },
         {
-            path: "/beAVolunteer",
+            path: "/beAVolunteer/:id",
             element: <PrivateRoute><BeAVolunteer></BeAVolunteer></PrivateRoute>,
+            loader: ({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
         },
         {
             path: "/updatePost",
