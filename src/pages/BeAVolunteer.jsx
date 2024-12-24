@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react'
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 export default function BeAVolunteer() {
   const loadedPostDetails = useLoaderData()
   const {_id,organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline} = loadedPostDetails
   const {user} = useContext(AuthContext);
+  const navigate = useNavigate();
     // const [startDate, setStartDate] = useState(null);
     // const [selectedValue, setSelectedValue] = useState("");
   
@@ -30,26 +31,27 @@ export default function BeAVolunteer() {
       const newBeAVolunteer = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline,volunteerName,volunteerEmail,suggestion,status}
       console.log(newBeAVolunteer)
       // send data to the server
-    //   fetch('http://localhost:5000/posts',{
-    //     method : 'POST',
-    //     headers : {
-    //         'content-type' : 'application/json'
-    //     },
-    //     body : JSON.stringify(newPost)
-    // })
-    // .then(res => res.json())
-    // .then(data => {
-    //     console.log(data)
-    //     if(data.insertedId){
-    //         Swal.fire({
-    //             title: 'Success',
-    //             text: 'Review added successfully',
-    //             icon: 'success',
-    //             confirmButtonText: 'Ok'
-    //           })
-    //     }
-    //     form.reset()
-    // })
+      fetch('http://localhost:5000/beAVolunteer',{
+        method : 'POST',
+        headers : {
+            'content-type' : 'application/json'
+        },
+        body : JSON.stringify(newBeAVolunteer)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data.insertedId){
+            Swal.fire({
+                title: 'Success',
+                text: 'Request Send successfully',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
+        }
+        form.reset()
+        navigate('/')
+    })
     }
   return (
     <div className='w-10/12 mx-auto py-7'>
