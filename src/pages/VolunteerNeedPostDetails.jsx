@@ -1,16 +1,43 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+// import React, { useContext } from 'react'
+import { useLoaderData, Link } from 'react-router-dom'
+// import Swal from 'sweetalert2';
+// import { AuthContext } from '../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 
 export default function VolunteerNeedPostDetails() {
+  // const {user} = useContext(AuthContext)
+  const loadedPostDetails = useLoaderData()
+  const {_id,organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline} = loadedPostDetails
+  // const navigate = useNavigate()
   return (
-    <div>
+    <div className='w-11/12 md:w-10/12 lg:w-7/12 mx-auto my-7'>
         <Helmet>
         <title>VolunForce | Volunteer Need Post Details</title>
         </Helmet>
-        <h1>VolunteerNeedPostDetails</h1>
-        <Link to='/beAVolunteer' className='btn'>Be A Volunteer</Link>
-    </div>
+       <div className="card bg-base-100 shadow-xl">
+   <figure className="px-5 pt-5 h-[300PX] w-10/12 mx-auto">
+     <img
+       src={thumbnail}
+       alt="Games"
+      className="rounded-xl w-full h-full" />
+   </figure>
+   <div className="card-body items-center text-center">
+     <h2 className="card-title text-xl font-bold">{postTitle}</h2>
+     <p className="text-lg font-semibold">Descriptions :<span className='text-gray-500'>{description}</span></p>
+     <p className="text-lg font-semibold">Category :<span className='text-gray-500'>{category}</span></p>
+    <p className="text-lg mb-2 font-semibold">Location :<span className='text-gray-500'>{location}</span></p>
+    <p className="text-lg font-semibold">No Of Volunteers Needed :<span className='text-gray-500'>{NoOfVolunteersNeeded}</span></p>
+    <p className="text-lg font-semibold">Deadline :<span className='text-gray-500'>{deadline}</span></p>
+    <p className="text-lg mb-2 font-semibold">Organizer's name :<span className='text-gray-500'>{organizerName}</span></p>
+    <p className="text-lg mb-2 font-semibold">Organizer's email :<span className='text-gray-500'>{email}</span></p>
+    
+    <div className="card-actions">
+      <Link to='/beAVolunteer'><button className="btn bg-[#0a3d62] text-[#d4af37]">Be A Volunteer</button></Link>
+   </div>
+</div>
+</div>
+    {/* <Link to='/beAVolunteer' className='btn'>Be A Volunteer</Link> */}
+  </div>
   )
 }
 

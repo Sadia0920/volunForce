@@ -18,3 +18,4 @@
 - lottie-react
 - motion
 - react-helmet-async
+- react-datepicker
