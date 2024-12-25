@@ -6,18 +6,21 @@ import Swal from 'sweetalert2';
 
 export default function ManageMyPosts() {
   const {user} = useContext(AuthContext)
-  const loadedPosts = useLoaderData();
-  const setLoadedPosts = loadedPosts.filter((email) => email.email == user.email)
+  const {postData , beAVolunteerData} = useLoaderData();
+  const setLoadedPosts = postData.filter((email) => email.email == user.email)
   const [myPost,setMyPost]=useState(setLoadedPosts)
+  const setLoadedBeAVolunteerReq = beAVolunteerData.filter((email) => email.volunteerEmail == user.email)
+  const [myVolunteerReq,setMyVolunteerReq]=useState(setLoadedBeAVolunteerReq)
   return (
     <div>
     <Helmet>
         <title>VolunForce | Manage My Posts</title>
     </Helmet>
     
+  {/* My Volunteer Need Post */}
 
   <div className='w-10/12 mx-auto py-7'>
-  <h1 className='text-3xl font-bold text-center'>My Volunteer Need Post</h1>
+  <h1 className='text-3xl font-bold text-center mb-6'>My Volunteer Need Post</h1>
     <div className="overflow-x-auto">
     <table className="table">
     {/* head */}
@@ -42,6 +45,44 @@ export default function ManageMyPosts() {
       <td>{item.location} Stars</td>
       <td>
       <Link to='updatePost'><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
+      <button className='btn'><i className="fa-regular fa-trash-can"></i></button>
+        {/* <Link to={`/updatePost/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link> */}
+        {/* <button onClick={()=>handleDeleteUser(review._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button>  */}
+      </td>
+      </tr>)
+    }
+  </tbody>
+  </table>
+  </div>
+  </div>
+
+  {/* My Request For Volunteer */}
+ 
+  <div className='w-10/12 mx-auto py-7'>
+  <h1 className='text-3xl font-bold text-center mb-6'>My Volunteer Request</h1>
+    <div className="overflow-x-auto">
+    <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+      <th></th>
+      <th>Volunteer Name</th>
+      <th>Post Title</th>
+      <th>Category</th>
+      <th>location</th>
+      <th>Action</th>
+      </tr>
+    </thead>
+    <tbody> 
+    {/* row 1 */}
+    {
+      myVolunteerReq.map((item,idx) =>  <tr key={item._id}>
+      <th>{idx + 1}</th>
+      <td>{item.volunteerName}</td>
+      <td>{item.postTitle}</td>
+      <td>{item.category}</td>
+      <td>{item.location} Stars</td>
+      <td>
       <button className='btn'><i className="fa-regular fa-trash-can"></i></button>
         {/* <Link to={`/updatePost/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link> */}
         {/* <button onClick={()=>handleDeleteUser(review._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button>  */}

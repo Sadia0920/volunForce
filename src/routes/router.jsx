@@ -35,7 +35,14 @@ const router = createBrowserRouter([
         {
             path: "/manageMyPosts",
             element: <PrivateRoute><ManageMyPosts></ManageMyPosts></PrivateRoute>,
-            loader: ()=>fetch('http://localhost:5000/posts')
+            loader: async() => {
+                const [postData , beAVolunteerData] = await Promise.all([
+                    fetch('http://localhost:5000/posts').then(res => res.json()),
+                    fetch('http://localhost:5000/beAVolunteer').then(res => res.json()),
+                ]);
+                return {postData , beAVolunteerData};
+            }
+            // loader: ()=>fetch('http://localhost:5000/posts')
         },
         {
             path: "/volunteerNeedPostDetails/:id",
