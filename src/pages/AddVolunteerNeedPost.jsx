@@ -5,11 +5,9 @@ import { Helmet } from 'react-helmet-async';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
 export default function AddVolunteerNeedPost() {
   const {user} = useContext(AuthContext);
   const [startDate, setStartDate] = useState(null);
-  // const [selectedValue, setSelectedValue] = useState("");
 
   const handleAddPost = (event) => {
     event.preventDefault();
@@ -24,7 +22,8 @@ export default function AddVolunteerNeedPost() {
     const NoOfVolunteersNeeded = form.NoOfVolunteersNeeded.value;
     const deadline = form.deadline.value;
     const newPost = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline}
-    console.log(newPost)
+    // console.log(newPost)
+
     // send data to the server
     fetch('http://localhost:5000/posts',{
       method : 'POST',
@@ -35,7 +34,7 @@ export default function AddVolunteerNeedPost() {
   })
   .then(res => res.json())
   .then(data => {
-      console.log(data)
+    //   console.log(data)
       if(data.insertedId){
           Swal.fire({
               title: 'Success',
@@ -54,7 +53,7 @@ export default function AddVolunteerNeedPost() {
         </Helmet>
         <div className=' bg-base-200 rounded-xl p-10'>
             <h2 className='text-center text-4xl font-bold text-[#374151]'>Add Volunteer Need Post</h2>
-            <p className='text-center text-[#1B1A1AB3] w-9/12 mx-auto mt-8'>It is a dedicated area where you can add detailed reviews of popular games.This page can significantly enhance user engagement and provide valuable content for visitors.</p>
+            <p className='text-center text-[#1B1A1AB3] w-9/12 mx-auto mt-8'>It is a dedicated area where you can add volunteer needed post. This page can significantly enhance user engagement.</p>
         <form onSubmit={handleAddPost}>
         <div className='md:flex justify-between items-center gap-5 mt-6'>
             <div className='md:w-1/2'>

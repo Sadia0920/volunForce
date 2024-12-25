@@ -8,8 +8,13 @@ export default function AllVolunteerNeedPosts() {
   const [data, setData] = useState(loadedPosts);
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
+  const [isTableLayout, setIsTableLayout] = useState(false);
 
+  const toggleLayout = () => {
+    setIsTableLayout((prev) => !prev);
+  };
+
+  useEffect(() => {
       fetch(`http://localhost:5000/posts?searchParams=${search}`)
       .then(res => res.json())
       .then(data => {
@@ -34,13 +39,42 @@ export default function AllVolunteerNeedPosts() {
       className="input input-bordered w-full"/>
       </div>
 
-      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+  <div className='w-4/12 mx-auto mb-6'>
+  <button className='btn bg-green-800 text-white w-full' onClick={toggleLayout}>
+        {isTableLayout ? "Switch to Card Layout" : "Switch to Table Layout"}
+      </button>
+  </div>
       {
-        data.map(post => <VolunteerNeedCard key={post._id} post={post}></VolunteerNeedCard>)
+        isTableLayout ? 
+        <>
+        <div id="table-layout" className="layout overflow-x-auto">
+      <table className="table">
+      <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Post Title</th>
+        <th>Category</th>
+        <th>Deadline</th>
+      </tr>
+      </thead>
+      </table>
+      </div>
+      </>
+      :
+      <>
+      </>
+      }
+
+      <div className={isTableLayout ?'grid grid-cols-1' : ' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'}>
+      {
+        data.map(post => <VolunteerNeedCard 
+          key={post._id} 
+          post={post}
+          setIsTableLayout={setIsTableLayout}
+          isTableLayout={isTableLayout}></VolunteerNeedCard>)
       }
       </div>
     </div>
-      // <Link to='/volunteerNeedPostDetails' className='btn'>Details</Link>
   )
 }
 
