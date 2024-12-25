@@ -44,9 +44,9 @@ export default function ManageMyPosts() {
       <td>{item.category}</td>
       <td>{item.location} Stars</td>
       <td>
-      <Link to='updatePost'><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
+      <Link to={`/updatePost/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
       <button className='btn'><i className="fa-regular fa-trash-can"></i></button>
-        {/* <Link to={`/updatePost/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link> */}
+        
         {/* <button onClick={()=>handleDeleteUser(review._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button>  */}
       </td>
       </tr>)
@@ -84,7 +84,6 @@ export default function ManageMyPosts() {
       <td>{item.location} Stars</td>
       <td>
       <button className='btn'><i className="fa-regular fa-trash-can"></i></button>
-        {/* <Link to={`/updatePost/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link> */}
         {/* <button onClick={()=>handleDeleteUser(review._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button>  */}
       </td>
       </tr>)

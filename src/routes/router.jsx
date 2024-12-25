@@ -42,7 +42,6 @@ const router = createBrowserRouter([
                 ]);
                 return {postData , beAVolunteerData};
             }
-            // loader: ()=>fetch('http://localhost:5000/posts')
         },
         {
             path: "/volunteerNeedPostDetails/:id",
@@ -55,8 +54,9 @@ const router = createBrowserRouter([
             loader: ({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
         },
         {
-            path: "/updatePost",
+            path: "/updatePost/:id",
             element: <PrivateRoute><UpdatePost></UpdatePost></PrivateRoute>,
+            loader: ({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
         },
         {
             path: "/login",

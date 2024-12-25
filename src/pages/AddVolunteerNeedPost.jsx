@@ -88,9 +88,9 @@ export default function AddVolunteerNeedPost() {
             <div className='md:w-full'>
                 <label className="form-control">
                 <div className="label">
-                <span className="label-text font-bold">Description</span>
+                <span className="label-text font-bold">Post Title</span>
                 </div>
-                <textarea type="text" placeholder="Enter Description" name='description' className="textarea" required></textarea>
+                <input type="text" placeholder="Enter Post Title" name='postTitle' className="input input-bordered w-full" required />
                 </label>
             </div>
         </div>
@@ -98,12 +98,13 @@ export default function AddVolunteerNeedPost() {
             <div className='md:w-full'>
                 <label className="form-control">
                 <div className="label">
-                <span className="label-text font-bold">Post Title</span>
+                <span className="label-text font-bold">Description</span>
                 </div>
-                <input type="text" placeholder="Enter Post Title" name='postTitle' className="input input-bordered w-full" required />
+                <textarea type="text" placeholder="Enter Description" name='description' className="textarea" required></textarea>
                 </label>
             </div>
         </div>
+        
         <div className='md:flex justify-between items-center gap-5 mt-6'>
             <div className='md:w-1/2'>
                 <label className="form-control">
