@@ -21,7 +21,7 @@ export default function Register() {
     const email = form.email.value;
     const password = form.password.value;
     const newUser = {name,photo,email,password}
-    console.log(newUser);
+    // console.log(newUser);
 
     setErrorMessage('')
 
@@ -111,7 +111,7 @@ export default function Register() {
             <span className="label-text">Password</span>
           </label>
           <input type={showPassword?'text':'password'}  placeholder="Password*" name='password' className="input input-bordered" required />
-          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[250px] lg:ml-[300px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[280px] md:ml-[480px] lg:ml-[420px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
           
         </div>
         <div className="form-control mt-6">

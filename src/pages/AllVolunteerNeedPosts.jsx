@@ -30,7 +30,7 @@ export default function AllVolunteerNeedPosts() {
       <h1 className='text-3xl font-bold text-center mt-9'>All Volunteer Need Posts</h1>
 
       {/* Search */}
-      <div className='w-[400px] mx-auto my-6'>
+      <div className='w-[250px] md:w-[300px] lg:w-[400px] mx-auto my-6'>
       <input
       onChange={(e) => setSearch(e.target.value)} 
       type="text"  
@@ -39,7 +39,7 @@ export default function AllVolunteerNeedPosts() {
       className="input input-bordered w-full"/>
       </div>
 
-  <div className='w-4/12 mx-auto mb-6'>
+  <div className='w-6/12 md:w-5/12 lg:w-4/12 mx-auto mb-6'>
   <button className='btn bg-green-800 text-white w-full' onClick={toggleLayout}>
         {isTableLayout ? "Switch to Card Layout" : "Switch to Table Layout"}
       </button>

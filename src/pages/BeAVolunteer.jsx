@@ -9,8 +9,6 @@ export default function BeAVolunteer() {
   const {_id,organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline} = loadedPostDetails
   const {user} = useContext(AuthContext);
   const navigate = useNavigate();
-    // const [startDate, setStartDate] = useState(null);
-    // const [selectedValue, setSelectedValue] = useState("");
   
     const handleBeAVolunteer = (event) => {
       event.preventDefault();
@@ -29,7 +27,7 @@ export default function BeAVolunteer() {
       const suggestion = form.suggestion.value;
       const status = form.status.value;
       const newBeAVolunteer = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline,volunteerName,volunteerEmail,suggestion,status}
-      console.log(newBeAVolunteer)
+      // console.log(newBeAVolunteer)
       // send data to the server
       fetch('http://localhost:5000/beAVolunteer',{
         method : 'POST',
@@ -40,7 +38,7 @@ export default function BeAVolunteer() {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
         if(data.insertedId){
             Swal.fire({
                 title: 'Success',

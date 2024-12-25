@@ -4,7 +4,6 @@ export default function VolunteerNeedCard({post,setIsTableLayout,isTableLayout})
 
 const {_id,organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline} =post
 
-
   return (
     <div>
     {isTableLayout ? (

@@ -18,12 +18,12 @@ export default function Login() {
     const email = form.email.value;
     const password = form.password.value;
     const user = {email,password}
-    console.log(user);
+    // console.log(user);
 
     // SignInUser
     signInUser(email,password)
     .then(result => {
-      console.log(result.user)
+      // console.log(result.user)
       setUser(result.user)
       Swal.fire({
         title: 'Success',
@@ -35,7 +35,7 @@ export default function Login() {
       form.reset()
     })
     .catch(error => {
-      console.log(error.message)
+      // console.log(error.message)
       setUser(null)
       Swal.fire({
         title: 'Error',
@@ -48,7 +48,7 @@ export default function Login() {
   const handleGoogleLogin = () => {
     signInWithGoogle()
     .then(result => {
-      console.log(result.user)
+      // console.log(result.user)
       setUser(result.user)
       Swal.fire({
         title: 'Success',
@@ -59,7 +59,7 @@ export default function Login() {
       navigate('/')
     })
     .catch(error => {
-      console.log(error)
+      // console.log(error)
       setUser(null)
     })
   }
@@ -88,7 +88,7 @@ export default function Login() {
             <span className="label-text">Password</span>
           </label>
           <input type={showPassword?'text':'password'}   placeholder="password*" name='password' className="input input-bordered" required />
-          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[250px] lg:ml-[300px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[280px] md:ml-[480px] lg:ml-[420px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>

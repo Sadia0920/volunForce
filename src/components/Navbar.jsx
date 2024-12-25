@@ -11,11 +11,11 @@ export default function Navbar() {
       console.log('logOut')
       signOutUser()
       .then(()=>{
-        console.log('SignOut Successfully')
+        // console.log('SignOut Successfully')
         setUser(null)
       })
       .catch(error => {
-        console.log(error.message)
+        // console.log(error.message)
       })
     }
   return (
@@ -79,7 +79,7 @@ export default function Navbar() {
       }
     </ul>
   </div>
-  <div className="md:navbar-end w-7/12 ml-14">
+  <div className="md:navbar-end w-7/12 ml-9 lg:ml-14">
   {
       user?
       <>
@@ -92,11 +92,13 @@ export default function Navbar() {
       </>
       :
       <>
+      <div className='flex md:flex-row flex-col'>
       <Link to='/login' className="btn mr-2">Login</Link>
       <Link to='/register' className="btn">Register</Link>
+      </div>
       </>
 }
-    <ThemeController></ThemeController>
+      <ThemeController></ThemeController>
   </div>
 </div>
 <Tooltip id="my-tooltip"/> 
