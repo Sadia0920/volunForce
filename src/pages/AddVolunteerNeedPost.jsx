@@ -39,7 +39,7 @@ export default function AddVolunteerNeedPost() {
       if(data.insertedId){
           Swal.fire({
               title: 'Success',
-              text: 'Review added successfully',
+              text: 'Post added successfully',
               icon: 'success',
               confirmButtonText: 'Ok'
             })

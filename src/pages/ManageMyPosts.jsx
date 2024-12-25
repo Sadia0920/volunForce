@@ -7,10 +7,76 @@ import Swal from 'sweetalert2';
 export default function ManageMyPosts() {
   const {user} = useContext(AuthContext)
   const {postData , beAVolunteerData} = useLoaderData();
+  // load post data
   const setLoadedPosts = postData.filter((email) => email.email == user.email)
   const [myPost,setMyPost]=useState(setLoadedPosts)
+  // load be volunteer data
   const setLoadedBeAVolunteerReq = beAVolunteerData.filter((email) => email.volunteerEmail == user.email)
   const [myVolunteerReq,setMyVolunteerReq]=useState(setLoadedBeAVolunteerReq)
+
+  // delete volunteer post
+    const handleDeletePost = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/posts/${_id}`,{
+          method : 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+          // console.log(data)
+          if(data.deletedCount > 0){
+          Swal.fire({
+          title: "Deleted!",
+          text: "Your post has been deleted.",
+          icon: "success"
+        });
+        const remainingPost = myPost.filter(post => post._id !== _id)
+        setMyPost(remainingPost)
+          }
+        })
+      }
+    });
+  }
+
+  // delete volunteer request
+  const handleDeleteRequest = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/beAVolunteer/${_id}`,{
+          method : 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+          // console.log(data)
+          if(data.deletedCount > 0){
+          Swal.fire({
+          title: "Deleted!",
+          text: "Your request has been deleted.",
+          icon: "success"
+        });
+        const remainingRequest = myVolunteerReq.filter(req => req._id !== _id)
+        setMyVolunteerReq(remainingRequest)
+          }
+        })
+      }
+    });
+  }
   return (
     <div>
     <Helmet>
@@ -42,12 +108,12 @@ export default function ManageMyPosts() {
       <td>{item.organizerName}</td>
       <td>{item.postTitle}</td>
       <td>{item.category}</td>
-      <td>{item.location} Stars</td>
+      <td>{item.location}</td>
       <td>
+      {/* update button */}
       <Link to={`/updatePost/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
-      <button className='btn'><i className="fa-regular fa-trash-can"></i></button>
-        
-        {/* <button onClick={()=>handleDeleteUser(review._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button>  */}
+      {/* delete button */}
+      <button onClick={()=>handleDeletePost(item._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button> 
       </td>
       </tr>)
     }
@@ -81,10 +147,10 @@ export default function ManageMyPosts() {
       <td>{item.volunteerName}</td>
       <td>{item.postTitle}</td>
       <td>{item.category}</td>
-      <td>{item.location} Stars</td>
+      <td>{item.location}</td>
       <td>
-      <button className='btn'><i className="fa-regular fa-trash-can"></i></button>
-        {/* <button onClick={()=>handleDeleteUser(review._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button>  */}
+      {/* delete button */}
+      <button onClick={()=>handleDeleteRequest(item._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button> 
       </td>
       </tr>)
     }

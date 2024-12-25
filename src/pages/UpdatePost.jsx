@@ -10,7 +10,6 @@ export default function UpdatePost() {
   const loadData = useLoaderData()
   const {_id,organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline} = loadData;
   const {user} = useContext(AuthContext);
-  
   const [startDate, setStartDate] = useState(new Date(deadline));
   const navigate = useNavigate()
 
@@ -29,7 +28,7 @@ export default function UpdatePost() {
     const NoOfVolunteersNeeded = form.NoOfVolunteersNeeded.value;
     const deadline = form.deadline.value;
     const newUpdatedPost = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline}
-    console.log(newUpdatedPost)
+    // console.log(newUpdatedPost)
 
     // update data to the server
     fetch(`http://localhost:5000/posts/${_id}`,{
