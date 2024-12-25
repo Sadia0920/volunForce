@@ -8,7 +8,7 @@ export default function Navbar() {
   const {signOutUser,user,setUser} = useContext(AuthContext)
 
     const handleSignOut = () => {
-      console.log('logOut')
+      // console.log('logOut')
       signOutUser()
       .then(()=>{
         // console.log('SignOut Successfully')

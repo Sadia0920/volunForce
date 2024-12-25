@@ -6,6 +6,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import axios from 'axios';
 
 export default function Login() {
   const {signInUser,signInWithGoogle,setUser} = useContext(AuthContext);
@@ -25,6 +26,11 @@ export default function Login() {
     .then(result => {
       // console.log(result.user)
       setUser(result.user)
+      const user2 = {email: email}
+      axios.post('http://localhost:5000/jwt', user2)
+      .then(res => {
+        console.log(res.data);
+      })
       Swal.fire({
         title: 'Success',
         text: 'Login successfully',
