@@ -4,25 +4,15 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 export default function ManageMyPosts() {
   const {user} = useContext(AuthContext)
-
-  // load post data
-  // const [postData,setPostData]=useState([])
-  // useEffect(()=> {
-  //   fetchAllPostData()
-  // },[])
-  // const fetchAllPostData = async () =>{
-  //   const {data} = await axios.get(`http://localhost:5000/myPosts/${user?.email}`)
-  //   setPostData(data)
-  //   console.log(data)
-  // }
-  
+  const axiosSecure = useAxiosSecure();  
 
   const [postData,setPostData]=useState([])
   const fetchAllPostData = async () =>{
-    const {data} = await axios.get('http://localhost:5000/posts')
+    const {data} = await axiosSecure.get('/myPosts')
     const setLoadedPosts = data.filter((email) => email.email == user.email)
     setPostData(setLoadedPosts)
   }
@@ -34,7 +24,7 @@ export default function ManageMyPosts() {
   // load be volunteer data
   const [beAVolunteerData,setBeAVolunteerData]=useState([])
   const fetchBeAVolunteerData = async () =>{
-    const {data} = await axios.get('http://localhost:5000/beAVolunteer')
+    const {data} = await axiosSecure.get('/beAVolunteer')
     const setLoadedBeAVolunteerReq = data.filter((email) => email.volunteerEmail == user.email)
   setBeAVolunteerData(setLoadedBeAVolunteerReq)
   }
