@@ -40,7 +40,7 @@ export default function BeAVolunteer() {
       const newBeAVolunteer = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline,volunteerName,volunteerEmail,suggestion,status,postId}
       // console.log(newBeAVolunteer)
       // send data to the server
-      fetch('http://localhost:5000/beAVolunteer',{
+      fetch('https://volun-force-server.vercel.app/beAVolunteer',{
         method : 'POST',
         headers : {
             'content-type' : 'application/json'

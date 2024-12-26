@@ -44,7 +44,7 @@ export default function UpdatePost() {
 
     // update data to the server
 
-    fetch(`http://localhost:5000/posts/${_id}`,{
+    fetch(`https://volun-force-server.vercel.app/posts/${_id}`,{
       method : 'PUT',
       headers : {
         'content-type' : 'application/json'

@@ -39,7 +39,7 @@ export default function AddVolunteerNeedPost() {
 
     // send data to the server
     try{
-        axios.post('http://localhost:5000/posts', newPost)
+        axios.post('https://volun-force-server.vercel.app/posts', newPost)
         .then(res => {
         //   console.log(res.data)
           if(res.data.insertedId){

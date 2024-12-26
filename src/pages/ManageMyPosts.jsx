@@ -44,7 +44,7 @@ export default function ManageMyPosts() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/posts/${_id}`,{
+        fetch(`https://volun-force-server.vercel.app/posts/${_id}`,{
           method : 'DELETE'
         })
         .then(res => res.json())
@@ -76,7 +76,7 @@ export default function ManageMyPosts() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/beAVolunteer/${_id}`,{
+        fetch(`https://volun-force-server.vercel.app/beAVolunteer/${_id}`,{
           method : 'DELETE'
         })
         .then(res => res.json())

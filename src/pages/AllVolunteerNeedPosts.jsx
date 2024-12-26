@@ -7,7 +7,7 @@ import axios from 'axios';
 export default function AllVolunteerNeedPosts() {
   const [data,setData]=useState([])
   const fetchAllData = async () =>{
-    const {data} = await axios.get('http://localhost:5000/posts')
+    const {data} = await axios.get('https://volun-force-server.vercel.app/posts')
     setData(data)
   }
   useEffect(()=> {
@@ -24,7 +24,7 @@ export default function AllVolunteerNeedPosts() {
   };
 
   useEffect(() => {
-      fetch(`http://localhost:5000/posts?searchParams=${search}`)
+      fetch(`https://volun-force-server.vercel.app/posts?searchParams=${search}`)
       .then(res => res.json())
       .then(data => {
         //console.log(data)

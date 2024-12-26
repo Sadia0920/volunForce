@@ -21,12 +21,12 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>,
-            loader: ()=>fetch('http://localhost:5000/posts')
+            loader: ()=>fetch('https://volun-force-server.vercel.app/posts')
         },
         {
             path: "/allVolunteerNeedPosts",
             element: <AllVolunteerNeedPosts></AllVolunteerNeedPosts>,
-            // loader: ()=>fetch('http://localhost:5000/posts')
+            // loader: ()=>fetch('https://volun-force-server.vercel.app/posts')
         },
         {
             path: "/addVolunteerNeedPost",
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
             element: <PrivateRoute><ManageMyPosts></ManageMyPosts></PrivateRoute>,
             // loader: async() => {
             //     const [postData , beAVolunteerData] = await Promise.all([
-            //         fetch('http://localhost:5000/posts').then(res => res.json()),
-            //         fetch('http://localhost:5000/beAVolunteer').then(res => res.json()),
+            //         fetch('https://volun-force-server.vercel.app/posts').then(res => res.json()),
+            //         fetch('https://volun-force-server.vercel.app/beAVolunteer').then(res => res.json()),
             //     ]);
             //     return {postData , beAVolunteerData};
             // }
@@ -46,17 +46,17 @@ const router = createBrowserRouter([
         {
             path: "/volunteerNeedPostDetails/:id",
             element: <PrivateRoute><VolunteerNeedPostDetails></VolunteerNeedPostDetails></PrivateRoute>,
-            loader: ({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
+            loader: ({params})=>fetch(`https://volun-force-server.vercel.app/posts/${params.id}`)
         },
         {
             path: "/beAVolunteer/:id",
             element: <PrivateRoute><BeAVolunteer></BeAVolunteer></PrivateRoute>,
-            loader: ({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
+            loader: ({params})=>fetch(`https://volun-force-server.vercel.app/posts/${params.id}`)
         },
         {
             path: "/updatePost/:id",
             element: <PrivateRoute><UpdatePost></UpdatePost></PrivateRoute>,
-            loader: ({params})=>fetch(`http://localhost:5000/posts/${params.id}`)
+            loader: ({params})=>fetch(`https://volun-force-server.vercel.app/posts/${params.id}`)
         },
         {
             path: "/login",
