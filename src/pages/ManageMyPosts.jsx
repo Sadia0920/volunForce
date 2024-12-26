@@ -1,18 +1,35 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export default function ManageMyPosts() {
   const {user} = useContext(AuthContext)
-  const {postData , beAVolunteerData} = useLoaderData();
+  
   // load post data
-  const setLoadedPosts = postData.filter((email) => email.email == user.email)
-  const [myPost,setMyPost]=useState(setLoadedPosts)
+  const [postData,setPostData]=useState([])
+  const fetchAllPostData = async () =>{
+    const {data} = await axios.get('http://localhost:5000/posts')
+    const setLoadedPosts = data.filter((email) => email.email == user.email)
+    setPostData(setLoadedPosts)
+  }
+  useEffect(()=> {
+    fetchAllPostData()
+  },[])
+
+  
   // load be volunteer data
-  const setLoadedBeAVolunteerReq = beAVolunteerData.filter((email) => email.volunteerEmail == user.email)
-  const [myVolunteerReq,setMyVolunteerReq]=useState(setLoadedBeAVolunteerReq)
+  const [beAVolunteerData,setBeAVolunteerData]=useState([])
+  const fetchBeAVolunteerData = async () =>{
+    const {data} = await axios.get('http://localhost:5000/beAVolunteer')
+    const setLoadedBeAVolunteerReq = data.filter((email) => email.volunteerEmail == user.email)
+  setBeAVolunteerData(setLoadedBeAVolunteerReq)
+  }
+  useEffect(()=> {
+    fetchBeAVolunteerData()
+  },[])
 
   // delete volunteer post
     const handleDeletePost = (_id) => {
@@ -103,7 +120,7 @@ export default function ManageMyPosts() {
     <tbody> 
     {/* row 1 */}
     {
-      myPost.map((item,idx) =>  <tr key={item._id}>
+      postData.map((item,idx) =>  <tr key={item._id}>
       <th>{idx + 1}</th>
       <td>{item.organizerName}</td>
       <td>{item.postTitle}</td>
@@ -142,7 +159,7 @@ export default function ManageMyPosts() {
     <tbody> 
     {/* row */}
     {
-      myVolunteerReq.map((item,idx) =>  <tr key={item._id}>
+      beAVolunteerData.map((item,idx) =>  <tr key={item._id}>
       <th>{idx + 1}</th>
       <td>{item.volunteerName}</td>
       <td>{item.postTitle}</td>

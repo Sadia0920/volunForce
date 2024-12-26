@@ -2,10 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { useLoaderData, Link} from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';
 import VolunteerNeedCard from './../components/VolunteerNeedCard';
+import axios from 'axios';
 
 export default function AllVolunteerNeedPosts() {
-  const loadedPosts = useLoaderData();
-  const [data, setData] = useState(loadedPosts);
+  const [data,setData]=useState([])
+  const fetchAllData = async () =>{
+    const {data} = await axios.get('http://localhost:5000/posts')
+    setData(data)
+  }
+  useEffect(()=> {
+    fetchAllData()
+  },[])
+  // const loadedPosts = useLoaderData();
+  // const [data, setData] = useState(loadedPosts);
   const [search, setSearch] = useState("");
 
   const [isTableLayout, setIsTableLayout] = useState(false);
