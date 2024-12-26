@@ -4,10 +4,13 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddVolunteerNeedPost() {
   const {user} = useContext(AuthContext);
   const [startDate, setStartDate] = useState(null);
+  const navigate = useNavigate()
 
   const handleAddPost = (event) => {
     event.preventDefault();
@@ -19,32 +22,47 @@ export default function AddVolunteerNeedPost() {
     const postTitle = form.postTitle.value;
     const category = form.category.value;
     const location = form.location.value;
-    const NoOfVolunteersNeeded = form.NoOfVolunteersNeeded.value;
+    const NoOfVolunteers = form.NoOfVolunteersNeeded.value;
     const deadline = form.deadline.value;
+    const NoOfVolunteersNeeded = Number(NoOfVolunteers);
+    if (isNaN(NoOfVolunteersNeeded) || NoOfVolunteersNeeded <= 0) {
+        Swal.fire({
+            title: 'Error',
+            text: 'not valid',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+        return;
+    }
     const newPost = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline}
-    // console.log(newPost)
+    console.log(newPost)
 
     // send data to the server
-    fetch('http://localhost:5000/posts',{
-      method : 'POST',
-      headers : {
-          'content-type' : 'application/json'
-      },
-      body : JSON.stringify(newPost)
-  })
-  .then(res => res.json())
-  .then(data => {
-    //   console.log(data)
-      if(data.insertedId){
-          Swal.fire({
-              title: 'Success',
-              text: 'Post added successfully',
-              icon: 'success',
-              confirmButtonText: 'Ok'
-            })
-      }
-      form.reset()
-  })
+    try{
+        axios.post('http://localhost:5000/posts', newPost)
+        .then(res => {
+        //   console.log(res.data)
+          if(res.data.insertedId){
+              Swal.fire({
+                  title: 'Success',
+                  text: 'Post added successfully',
+                  icon: 'success',
+                  confirmButtonText: 'Ok'
+                })
+          }
+          form.reset()
+          navigate('/manageMyPosts')
+      })
+    }
+    catch (err) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Post added error',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+    }
+    
   }
   return (
     <div className='w-10/12 mx-auto py-7'>

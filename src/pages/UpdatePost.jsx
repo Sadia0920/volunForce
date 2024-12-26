@@ -1,12 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
-import { useLoaderData,useNavigate } from 'react-router-dom';
+import { useLoaderData,useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
 
 export default function UpdatePost() { 
+
   const loadData = useLoaderData()
   const {_id,organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline} = loadData;
   const {user} = useContext(AuthContext);
@@ -25,12 +27,23 @@ export default function UpdatePost() {
     const postTitle = form.postTitle.value;
     const category = form.category.value;
     const location = form.location.value;
-    const NoOfVolunteersNeeded = form.NoOfVolunteersNeeded.value;
+    const NoOfVolunteers = form.NoOfVolunteersNeeded.value;
     const deadline = form.deadline.value;
+      const NoOfVolunteersNeeded = Number(NoOfVolunteers);
+          if (isNaN(NoOfVolunteersNeeded) || NoOfVolunteersNeeded <= 0) {
+              Swal.fire({
+                  title: 'Error',
+                  text: 'not valid',
+                  icon: 'error',
+                  confirmButtonText: 'Ok'
+                })
+              return;
+          }
     const newUpdatedPost = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline}
     // console.log(newUpdatedPost)
 
     // update data to the server
+
     fetch(`http://localhost:5000/posts/${_id}`,{
       method : 'PUT',
       headers : {
@@ -48,7 +61,7 @@ export default function UpdatePost() {
       confirmButtonText: 'Ok'
       })
       }
-      navigate('/allVolunteerNeedPosts')
+      navigate('/manageMyPosts')
       })
       }
   return (

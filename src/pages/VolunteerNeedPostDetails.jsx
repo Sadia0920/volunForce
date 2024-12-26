@@ -1,9 +1,11 @@
 import { useLoaderData, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';
+import { useState } from 'react';
 
 export default function VolunteerNeedPostDetails() {
   
   const loadedPostDetails = useLoaderData()
+  
   const {_id,organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline} = loadedPostDetails
   
   return (

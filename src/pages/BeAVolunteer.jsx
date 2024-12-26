@@ -20,13 +20,24 @@ export default function BeAVolunteer() {
       const postTitle = form.postTitle.value;
       const category = form.category.value;
       const location = form.location.value;
-      const NoOfVolunteersNeeded = form.NoOfVolunteersNeeded.value;
+      const NoOfVolunteers = form.NoOfVolunteersNeeded.value;
       const deadline = form.deadline.value;
       const volunteerName = form.volunteerName.value;
       const volunteerEmail = form.volunteerEmail.value;
       const suggestion = form.suggestion.value;
       const status = form.status.value;
-      const newBeAVolunteer = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline,volunteerName,volunteerEmail,suggestion,status}
+      const postId = _id;
+      const NoOfVolunteersNeeded = Number(NoOfVolunteers);
+          if (isNaN(NoOfVolunteersNeeded) || NoOfVolunteersNeeded <= 0) {
+              Swal.fire({
+                  title: 'Error',
+                  text: 'not valid',
+                  icon: 'error',
+                  confirmButtonText: 'Ok'
+                })
+              return;
+          }
+      const newBeAVolunteer = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline,volunteerName,volunteerEmail,suggestion,status,postId}
       // console.log(newBeAVolunteer)
       // send data to the server
       fetch('http://localhost:5000/beAVolunteer',{
@@ -48,7 +59,7 @@ export default function BeAVolunteer() {
               })
         }
         form.reset()
-        navigate('/')
+        navigate('/manageMyPosts')
     })
     }
   return (

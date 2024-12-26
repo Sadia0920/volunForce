@@ -7,8 +7,19 @@ import axios from 'axios';
 
 export default function ManageMyPosts() {
   const {user} = useContext(AuthContext)
-  
+
   // load post data
+  // const [postData,setPostData]=useState([])
+  // useEffect(()=> {
+  //   fetchAllPostData()
+  // },[])
+  // const fetchAllPostData = async () =>{
+  //   const {data} = await axios.get(`http://localhost:5000/myPosts/${user?.email}`)
+  //   setPostData(data)
+  //   console.log(data)
+  // }
+  
+
   const [postData,setPostData]=useState([])
   const fetchAllPostData = async () =>{
     const {data} = await axios.get('http://localhost:5000/posts')
@@ -55,8 +66,8 @@ export default function ManageMyPosts() {
           text: "Your post has been deleted.",
           icon: "success"
         });
-        const remainingPost = myPost.filter(post => post._id !== _id)
-        setMyPost(remainingPost)
+        const remainingPost = postData.filter(post => post._id !== _id)
+        setPostData(remainingPost)
           }
         })
       }
@@ -87,8 +98,8 @@ export default function ManageMyPosts() {
           text: "Your request has been deleted.",
           icon: "success"
         });
-        const remainingRequest = myVolunteerReq.filter(req => req._id !== _id)
-        setMyVolunteerReq(remainingRequest)
+        const remainingRequest = beAVolunteerData.filter(req => req._id !== _id)
+        setBeAVolunteerData(remainingRequest)
           }
         })
       }
@@ -113,7 +124,7 @@ export default function ManageMyPosts() {
       <th>Organizer Name</th>
       <th>Post Title</th>
       <th>Category</th>
-      <th>location</th>
+      <th>No Of Volunteers Needed</th>
       <th>Action</th>
       </tr>
     </thead>
@@ -125,7 +136,7 @@ export default function ManageMyPosts() {
       <td>{item.organizerName}</td>
       <td>{item.postTitle}</td>
       <td>{item.category}</td>
-      <td>{item.location}</td>
+      <td>{item.NoOfVolunteersNeeded}</td>
       <td>
       {/* update button */}
       <Link to={`/updatePost/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
