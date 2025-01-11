@@ -42,6 +42,7 @@ export default function Navbar() {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allVolunteerNeedPosts'>All Volunteer Need Posts</NavLink></li>
+        <li><NavLink to='/about'>About</NavLink></li>
         {
           user && 
           <>
@@ -63,6 +64,7 @@ export default function Navbar() {
     <ul className="menu menu-horizontal px-1">
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/allVolunteerNeedPosts'>All Volunteer Need Posts</NavLink></li>
+      <li><NavLink to='/about'>About</NavLink></li>
       {
         user && 
         <>

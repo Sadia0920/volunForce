@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Error from "../pages/Error";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
+import About from "../pages/About";
 import AllVolunteerNeedPosts from './../pages/AllVolunteerNeedPosts';
 import AddVolunteerNeedPost from './../pages/AddVolunteerNeedPost';
 import ManageMyPosts from './../pages/ManageMyPosts';
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
             path: "/allVolunteerNeedPosts",
             element: <AllVolunteerNeedPosts></AllVolunteerNeedPosts>,
             // loader: ()=>fetch('https://volun-force-server.vercel.app/posts')
+        },
+        {
+            path: "/about",
+            element: <About></About>
         },
         {
             path: "/addVolunteerNeedPost",
