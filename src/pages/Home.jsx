@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from '../components/Banner'
+import SuccessStory from '../components/SuccessStory'
 import VolunteerGuide from '../components/VolunteerGuide'
 import FAQ from '../components/FAQ'
 import { Link, useLoaderData } from 'react-router-dom'
@@ -26,6 +27,7 @@ export default function Home() {
       <Link to="/allVolunteerNeedPosts" className='btn mt-6 bg-green-800 text-white w-4/12 md:w-3/12 lg:w-1/12'>See All</Link>
       </div>
         <VolunteerGuide></VolunteerGuide>
+        <SuccessStory></SuccessStory>
         <FAQ></FAQ>
     </div>
   )
