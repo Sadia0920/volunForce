@@ -20,7 +20,7 @@ const {_id,organizerName,email,thumbnail,description,postTitle,category,location
       </table>
       </div>
       ) : (
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl h-full">
   <figure className="px-5 pt-5 h-[200PX] w-11/12 mx-auto">
     <img
       src={thumbnail}
@@ -28,7 +28,7 @@ const {_id,organizerName,email,thumbnail,description,postTitle,category,location
       className="rounded-xl w-full h-full" />
   </figure>
   <div className="card-body items-center text-center">
-    <h2 className="card-title text-gray-950">{postTitle}</h2>
+    <h2 className="card-title text-gray-950 h-full">{postTitle}</h2>
     <p className="text-lg font-semibold text-gray-800">Category :<span className='text-gray-500'>{category}</span></p>
     <p className="text-lg mb-2 font-semibold text-gray-800">Deadline :<span className='text-gray-500'>{deadline}</span></p>
     

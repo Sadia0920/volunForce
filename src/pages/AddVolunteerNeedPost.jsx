@@ -35,7 +35,7 @@ export default function AddVolunteerNeedPost() {
         return;
     }
     const newPost = {organizerName,email,thumbnail,description,postTitle,category,location,NoOfVolunteersNeeded,deadline}
-    console.log(newPost)
+    // console.log(newPost)
 
     // send data to the server
     try{

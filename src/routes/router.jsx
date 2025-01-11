@@ -11,6 +11,10 @@ import PrivateRoute from './PrivateRoute';
 import VolunteerNeedPostDetails from "../pages/VolunteerNeedPostDetails";
 import BeAVolunteer from "../pages/BeAVolunteer";
 import UpdatePost from "../pages/UpdatePost";
+import TenWays from "../pages/TenWays";
+import EmmasStory from './../pages/EmmasStory';
+import VolunteerProgram from './../pages/VolunteerProgram';
+import HiddenBenefits from './../pages/HiddenBenefits';
 
 const router = createBrowserRouter([
     {
@@ -65,6 +69,22 @@ const router = createBrowserRouter([
         {
             path: "/register",
             element: <Register></Register>,
+        },
+        {
+            path: "/tenWays",
+            element: <TenWays></TenWays>,
+        },
+        {
+            path: "/emmasStory",
+            element: <EmmasStory></EmmasStory>,
+        },
+        {
+            path: "/volunteerProgram",
+            element: <VolunteerProgram></VolunteerProgram>,
+        },
+        {
+            path: "/hiddenBenefits",
+            element: <HiddenBenefits></HiddenBenefits>,
         },
       ]
     },

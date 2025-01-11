@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function VolunteerGuide() {
   return (
@@ -12,7 +13,7 @@ export default function VolunteerGuide() {
       <h2 className="text-xl font-bold">"10 Ways to Make the Most of Your Volunteer Experience"</h2>
       <p className="font-medium">Learn actionable tips to maximize your impact and find joy in your volunteer journey. Perfect for both beginners and seasoned volunteers!</p>
         <div className="card-actions justify-center">
-        <button className=" text-green-800 font-bold border-b-2 border-green-800">Read More</button>
+        <Link to='/tenWays' className=" text-green-800 font-bold border-b-2 border-green-800">Read More</Link>
       </div>
   </div>
 </div>
@@ -23,7 +24,7 @@ export default function VolunteerGuide() {
     <h2 className="text-xl font-bold">"Building Brighter Futures: Emma’s Story of Teaching Kids"</h2>
     <p className="font-medium">Discover how Emma’s dedication to teaching children in underserved areas transformed lives and inspired a community.</p>
     <div className="card-actions justify-center">
-    <button className=" text-green-800 font-bold border-b-2 border-green-800">Read More</button>
+    <Link to='/emmasStory' className=" text-green-800 font-bold border-b-2 border-green-800">Read More</Link>
     </div>
   </div>
 </div>
@@ -34,7 +35,7 @@ export default function VolunteerGuide() {
     <h2 className="text-xl font-bold">"How to Start a Volunteer Program for Your Organization"</h2>
     <p className="font-medium">Explore our step-by-step guide to launch and manage a successful volunteer program that drives real change.</p>
     <div className="card-actions justify-center">
-    <button className=" text-green-800 font-bold border-b-2 border-green-800">Read More</button>
+    <Link to='/volunteerProgram' className=" text-green-800 font-bold border-b-2 border-green-800">Read More</Link>
     </div>
   </div>
 </div>
@@ -45,7 +46,7 @@ export default function VolunteerGuide() {
     <h2 className="text-xl font-bold">"The Hidden Benefits of Volunteering for Your Mental Health"</h2>
     <p className="font-medium">Did you know volunteering can boost your well-being? Dive into the surprising ways helping others helps you too!</p>
     <div className="card-actions justify-center">
-    <button className=" text-green-800 font-bold border-b-2 border-green-800">Read More</button>
+    <Link to='/hiddenBenefits' className=" text-green-800 font-bold border-b-2 border-green-800">Read More</Link>
     </div>
   </div>
 </div>
