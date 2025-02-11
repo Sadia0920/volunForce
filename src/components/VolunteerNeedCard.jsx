@@ -31,7 +31,6 @@ const {_id,organizerName,email,thumbnail,description,postTitle,category,location
     <h2 className="card-title text-gray-950 h-full">{postTitle}</h2>
     <p className="text-lg font-semibold text-gray-800">Category :<span className='text-gray-500'>{category}</span></p>
     <p className="text-lg mb-2 font-semibold text-gray-800">Deadline :<span className='text-gray-500'>{deadline}</span></p>
-    {/* <p className="text-lg mb-2 font-semibold text-gray-800">Description :<span className='text-gray-500'>{description}</span></p> */}
     
     <div className="card-actions">
       <Link to={`/volunteerNeedPostDetails/${_id}`}><button className="btn bg-green-800 text-white">View Details</button></Link>

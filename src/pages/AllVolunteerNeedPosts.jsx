@@ -60,10 +60,10 @@ export default function AllVolunteerNeedPosts() {
       <table className="table">
       <thead>
       <tr>
-        <th>Thumbnail</th>
-        <th>Post Title</th>
-        <th>Category</th>
-        <th>Deadline</th>
+        <th className='text-gray-500'>Thumbnail</th>
+        <th className='text-gray-500'>Post Title</th>
+        <th className='text-gray-500'>Category</th>
+        <th className='text-gray-500'>Deadline</th>
       </tr>
       </thead>
       </table>
