@@ -79,7 +79,7 @@ export default function AddVolunteerNeedPost() {
                 <div className="label">
                 <span className="label-text font-bold">Organizer Name</span>
                 </div>
-                <input type="text" readOnly defaultValue={user.displayName}  placeholder="Enter Organizer Name" name='organizerName' className="input input-bordered w-full" required/>
+                <input type="text" readOnly defaultValue={user.displayName}  placeholder="Enter Organizer Name" name='organizerName' className="input input-bordered w-full text-black" required/>
                 </label>
             </div>
             <div className='md:w-1/2'>
@@ -87,7 +87,7 @@ export default function AddVolunteerNeedPost() {
                 <div className="label">
                 <span className="label-text font-bold">Organizer Email</span>
                 </div>
-                <input type="email" readOnly defaultValue={user.email} placeholder="Enter Organizer Email" name='email' className="input input-bordered w-full" required/>
+                <input type="email" readOnly defaultValue={user.email} placeholder="Enter Organizer Email" name='email' className="input input-bordered text-black w-full" required/>
                 </label>
             </div>
         </div>
@@ -97,7 +97,7 @@ export default function AddVolunteerNeedPost() {
                 <div className="label">
                 <span className="label-text font-bold">Thumbnail</span>
                 </div>
-                <input type="text" placeholder="Enter Thumbnail" name='thumbnail' className="input input-bordered w-full" required />
+                <input type="text" placeholder="Enter Thumbnail" name='thumbnail' className="input input-bordered text-black w-full" required />
                 </label>
             </div>
         </div>
@@ -107,7 +107,7 @@ export default function AddVolunteerNeedPost() {
                 <div className="label">
                 <span className="label-text font-bold">Post Title</span>
                 </div>
-                <input type="text" placeholder="Enter Post Title" name='postTitle' className="input input-bordered w-full" required />
+                <input type="text" placeholder="Enter Post Title" name='postTitle' className="input input-bordered text-black w-full" required />
                 </label>
             </div>
         </div>
@@ -117,7 +117,7 @@ export default function AddVolunteerNeedPost() {
                 <div className="label">
                 <span className="label-text font-bold">Description</span>
                 </div>
-                <textarea type="text" placeholder="Enter Description" name='description' className="textarea" required></textarea>
+                <textarea type="text" placeholder="Enter Description" name='description' className="textarea text-black" required></textarea>
                 </label>
             </div>
         </div>
@@ -128,7 +128,7 @@ export default function AddVolunteerNeedPost() {
                 <div className="label">
                 <span className="label-text font-bold">Category</span>
                 </div>
-                <input type="text" placeholder="Enter Category" name='category' className="input input-bordered w-full" required/>
+                <input type="text" placeholder="Enter Category" name='category' className="input input-bordered text-black w-full" required/>
                 </label>
             </div>
             <div className='md:w-1/2'>
@@ -136,7 +136,7 @@ export default function AddVolunteerNeedPost() {
                 <div className="label">
                 <span className="label-text font-bold">Location</span>
                 </div>
-                <input type="text" placeholder="Enter Location" name='location' className="input input-bordered w-full" required/>
+                <input type="text" placeholder="Enter Location" name='location' className="input input-bordered text-black w-full" required/>
                 </label>
             </div>
         </div>
@@ -146,7 +146,7 @@ export default function AddVolunteerNeedPost() {
                 <div className="label">
                 <span className="label-text font-bold">No. of volunteers needed</span>
                 </div>
-                <input type="number" placeholder="Enter No. of volunteers needed" name='NoOfVolunteersNeeded' className="input input-bordered w-full" required/>
+                <input type="number" placeholder="Enter No. of volunteers needed" name='NoOfVolunteersNeeded' className="input input-bordered text-black w-full" required/>
                 </label>
             </div>
             <div className='md:w-1/2'>
@@ -160,7 +160,7 @@ export default function AddVolunteerNeedPost() {
                     dateFormat="yyyy-MM-dd"
                     placeholderText="Select a date"
                     name='deadline'
-                    className='input input-bordered w-full'
+                    className='input input-bordered text-black w-full'
                     required
                      />
                 </label>
