@@ -31,7 +31,7 @@ export default function VolunteerNeedPostDetails() {
     <p className="text-lg mb-2 font-semibold text-gray-800">Organizer's email :<span className='text-gray-500'>{email}</span></p>
     
     <div className="card-actions">
-      <Link to={`/beAVolunteer/${_id}`}><button className="btn bg-green-800 text-white">Be A Volunteer</button></Link>
+      <Link to={`/beAVolunteer/${_id}`}><button className="btn bg-green-800 text-white">Be A Volunteer<i className="fa-solid fa-hand-holding-hand"></i></button></Link>
    </div>
 </div>
 </div>
