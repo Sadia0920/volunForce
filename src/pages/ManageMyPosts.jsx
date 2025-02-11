@@ -110,12 +110,12 @@ export default function ManageMyPosts() {
     {/* head */}
     <thead>
       <tr>
-      <th></th>
-      <th>Organizer Name</th>
-      <th>Post Title</th>
-      <th>Category</th>
-      <th>No Of Volunteers Needed</th>
-      <th>Action</th>
+      <th className='text-gray-500'>#</th>
+      <th className='text-gray-500'>Organizer Name</th>
+      <th className='text-gray-500'>Post Title</th>
+      <th className='text-gray-500'>Category</th>
+      <th className='text-gray-500'>No Of Volunteers Needed</th>
+      <th className='text-gray-500'>Action</th>
       </tr>
     </thead>
     <tbody> 
@@ -149,12 +149,12 @@ export default function ManageMyPosts() {
     {/* head */}
     <thead>
       <tr>
-      <th></th>
-      <th>Volunteer Name</th>
-      <th>Post Title</th>
-      <th>Category</th>
-      <th>location</th>
-      <th>Action</th>
+      <th className='text-gray-500'>#</th>
+      <th className='text-gray-500'>Volunteer Name</th>
+      <th className='text-gray-500'>Post Title</th>
+      <th className='text-gray-500'>Category</th>
+      <th className='text-gray-500'>location</th>
+      <th className='text-gray-500'>Action</th>
       </tr>
     </thead>
     <tbody> 
