@@ -24,7 +24,7 @@ export default function Home() {
       }
       </div>
       <div className="text-center">
-      <Link to="/allVolunteerNeedPosts" className='btn mt-6 bg-green-800 text-white w-4/12 md:w-3/12 lg:w-1/12'>See All</Link>
+      <Link to="/allVolunteerNeedPosts" className='btn mt-6 bg-green-800 text-white w-4/12 md:w-3/12 lg:w-1/12 '>See All<i className="fa-solid fa-arrow-right-to-bracket"></i></Link>
       </div>
         <VolunteerGuide></VolunteerGuide>
         <SuccessStory></SuccessStory>
