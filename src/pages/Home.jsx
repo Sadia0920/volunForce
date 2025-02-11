@@ -6,6 +6,7 @@ import FAQ from '../components/FAQ'
 import { Link, useLoaderData } from 'react-router-dom'
 import VolunteerNeedCard from './../components/VolunteerNeedCard';
 import { Helmet } from 'react-helmet-async';
+import PremiumAccess from '../components/premiumAccess'
 
 export default function Home() {
   const loadedCards = useLoaderData();
@@ -29,6 +30,7 @@ export default function Home() {
         <VolunteerGuide></VolunteerGuide>
         <SuccessStory></SuccessStory>
         <FAQ></FAQ>
+        <PremiumAccess></PremiumAccess>
     </div>
   )
 }

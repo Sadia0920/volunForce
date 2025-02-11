@@ -81,7 +81,7 @@ export default function Navbar() {
       }
     </ul>
   </div>
-  <div className="md:navbar-end w-7/12 ml-9 lg:ml-14">
+  <div className="md:navbar-end w-7/12 ml-9 lg:ml-14 flex-col md:flex-row">
   {
       user?
       <>
@@ -91,11 +91,12 @@ export default function Navbar() {
       <img className='w-8 h-8 rounded-full' src={user.photoURL} alt="" />
       </a>
       <Link onClick={handleSignOut} className="btn ml-4">LogOut</Link>
+
       </>
       :
       <>
       <div className='flex md:flex-row flex-col'>
-      <Link to='/login' className="btn mr-2">Login</Link>
+      <Link to='/login' className="btn mr-2 md:mb-0 mb-4">Login</Link>
       <Link to='/register' className="btn">Register</Link>
       </div>
       </>
