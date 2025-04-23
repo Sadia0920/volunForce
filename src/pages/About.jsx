@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 export default function About() {
   return (
-    <div className='p-16 my-7 bg-[rgb(168,224,92,0.2)] w-10/12 mx-auto rounded-xl'>
+    <div className='p-16 my-7 bg-[rgb(168,224,92,0.3)] w-10/12 mx-auto rounded-xl'>
       <Helmet>
         <title>VolunForce | About</title>
       </Helmet>
