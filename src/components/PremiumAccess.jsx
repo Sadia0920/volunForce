@@ -2,7 +2,7 @@ export default function PremiumAccess() {
     return (
       <div className=" w-10/12 mx-auto my-14">
         <h2 className='text-3xl font-bold text-center mb-9'>Premium Access <i className="fa-brands fa-accessible-icon"></i></h2>
-        <div className="bg-[rgb(168,224,92,0.2)] py-10 px-2 md:px-5 rounded-3xl">
+        <div className="bg-[rgb(168,224,92,0.3)] py-10 px-2 md:px-5 rounded-3xl">
         <p className='text-center my-9 text-lg font-semibold'>Offer exclusive alerts for special deals available only to users who become organizers of our site</p>
         <div className="flex flex-col md:flex-row items-center w-full md:w-6/12 lg:w-4/12 mx-auto gap-2">
         <label className="input input-bordered flex items-center gap-2">
