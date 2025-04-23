@@ -3,10 +3,13 @@ import { Helmet } from 'react-helmet-async';
 
 export default function VolunteerProgram() {
   return (
-    <div className='p-16 my-7 bg-[rgb(168,224,92,0.2)] w-10/12 mx-auto rounded-xl'>
+    <div className='p-16 my-7 bg-[rgb(168,224,92,0.3)] w-10/12 mx-auto rounded-xl'>
       <Helmet>
         <title>VolunForce | Volunteer Program</title>
       </Helmet>
+      <div className='text-center'>
+      <i className="fa-solid fa-people-group text-4xl"></i>
+      </div>
       <h1 className='text-center text-3xl font-bold'>How to Start a Volunteer Program for Your Organization</h1>
       <p className='text-lg mt-7 font-medium'>Starting a volunteer program can be a game-changer for your organization, providing invaluable support while fostering community engagement. Whether you're a nonprofit, a community group, or a corporate entity looking to give back, here's how to launch a successful volunteer program:
       <br></br>
