@@ -129,9 +129,9 @@ export default function ManageMyPosts() {
       <td>{item.NoOfVolunteersNeeded}</td>
       <td>
       {/* update button */}
-      <Link to={`/updatePost/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
+      <Link to={`/updatePost/${item._id}`}><button className='btn mr-2 bg-transparent border-none'><i className="fa-regular fa-pen-to-square text-lg text-green-500 hover:text-green-800"></i></button></Link>
       {/* delete button */}
-      <button onClick={()=>handleDeletePost(item._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button> 
+      <button onClick={()=>handleDeletePost(item._id)} className='btn bg-transparent border-none'><i className="fa-regular fa-trash-can text-red-500 hover:text-red-800 text-lg"></i></button> 
       </td>
       </tr>)
     }
@@ -168,7 +168,7 @@ export default function ManageMyPosts() {
       <td>{item.location}</td>
       <td>
       {/* delete button */}
-      <button onClick={()=>handleDeleteRequest(item._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button> 
+      <button onClick={()=>handleDeleteRequest(item._id)} className='btn bg-transparent border-none'><i className="fa-regular fa-trash-can text-red-500 hover:text-red-800 text-lg"></i></button> 
       </td>
       </tr>)
     }
