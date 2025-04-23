@@ -33,7 +33,7 @@ const {_id,organizerName,email,thumbnail,description,postTitle,category,location
     <p className="text-lg mb-2 font-semibold text-gray-800">Deadline :<span className='text-gray-500'>{deadline}</span></p>
     
     <div className="card-actions">
-      <Link to={`/volunteerNeedPostDetails/${_id}`}><button className="btn bg-green-800 text-white">View Details</button></Link>
+      <Link to={`/volunteerNeedPostDetails/${_id}`}><button className="btn bg-green-800 text-white hover:bg-[#A8E05C] hover:text-black">View Details</button></Link>
     </div>
   </div>
 </div>
