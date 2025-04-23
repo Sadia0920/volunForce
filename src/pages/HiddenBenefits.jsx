@@ -3,10 +3,13 @@ import { Helmet } from 'react-helmet-async';
 
 export default function HiddenBenefits() {
   return (
-    <div className='p-16 my-7 bg-[rgb(255,111,0,0.2)] w-10/12 mx-auto rounded-xl'>
+    <div className='p-16 my-7 bg-[rgb(255,111,0,0.3)] w-10/12 mx-auto rounded-xl'>
       <Helmet>
         <title>VolunForce | Hidden Benefits</title>
       </Helmet>
+      <div className='text-center'>
+      <i className="fa-solid fa-suitcase-medical text-4xl"></i>
+      </div>
       <h1 className='text-center text-3xl font-bold'>The Hidden Benefits of Volunteering for Your Mental Health</h1>
       <p className='text-lg mt-7 font-medium'>Volunteering isn’t just about giving back—it's also a powerful way to boost your mental well-being. While the act of helping others is fulfilling, it also brings a host of hidden benefits for your mind and emotions. Here’s how volunteering can improve your mental health:
       <br></br>
