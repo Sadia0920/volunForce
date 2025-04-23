@@ -3,10 +3,13 @@ import { Helmet } from 'react-helmet-async';
 
 export default function TenWays() {
   return (
-    <div className='p-16 my-7 bg-[rgb(168,224,92,0.2)] w-10/12 mx-auto rounded-xl'>
+    <div className='p-16 my-7 bg-[rgb(168,224,92,0.3)] w-10/12 mx-auto rounded-xl'>
       <Helmet>
         <title>VolunForce | Ten Ways</title>
       </Helmet>
+      <div className='text-center'>
+      <i className="fa-solid fa-leaf text-4xl"></i>
+      </div>
       <h1 className='text-center text-3xl font-bold'>10 Ways to Make the Most of Your Volunteer Experience</h1>
       <p className='text-lg mt-7 font-medium'>Volunteering is a rewarding way to give back, build connections, and grow personally and professionally. To ensure you maximize your time and make a meaningful impact, here are 10 practical tips to enhance your volunteer experience:
       <br></br>
