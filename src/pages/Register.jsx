@@ -111,12 +111,20 @@ export default function Register() {
             <span className="label-text">Password</span>
           </label>
           <input type={showPassword?'text':'password'}  placeholder="Password*" name='password' className="input input-bordered" required />
-          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[280px] md:ml-[480px] lg:ml-[420px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
-          
+          <a onClick={()=>setShowPassword(!showPassword)} className="absolute inset-y-0 right-4 flex items-center cursor-pointer">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
+
+          <label className="fieldset-label mt-2">
+          <input
+                        type="checkbox"
+                        className="checkbox justify-center items-center"
+                        required
+                      />{" "}
+           I accept the Terms and Conditions
+          </label>
         </div>
-        <div className="form-control mt-6">
-          <button className="btn bg-green-800 text-white">Register</button>
-          <p className='text-center mt-4'>Already have an account? <NavLink to='/login' className='text-green-800'>Login</NavLink></p>
+        <div className="form-control mt-2">
+          <button className="btn bg-green-800 text-white hover:bg-[#A8E05C] hover:text-black">Register</button>
+          <p className='text-center mt-4'>Already have an account? <NavLink to='/login' className='text-green-800 border-b-2 border-green-800'>Login</NavLink></p>
         </div>
       </form>
     </div>

@@ -89,18 +89,18 @@ export default function Login() {
             <span className="label-text">Password</span>
           </label>
           <input type={showPassword?'text':'password'}   placeholder="password*" name='password' className="input input-bordered" required />
-          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[280px] md:ml-[480px] lg:ml-[420px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
+          <a onClick={()=>setShowPassword(!showPassword)} className="absolute inset-y-0 right-4 flex items-center cursor-pointer">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
         </div>
-        <div className="form-control mt-6">
-          <button className="btn bg-green-800 text-white">Login</button>
-          <p className='text-center mt-4'>Don't have an account? <NavLink to='/register' className='text-green-800'>Register</NavLink></p>
+        <div className="form-control mt-2">
+          <button className="btn bg-green-800 text-white hover:bg-[#A8E05C] hover:text-black">Login</button>
+          <p className='text-center mt-3'>Don't have an account? <NavLink to='/register' className='text-green-800 border-green-800 border-b-2'>Register</NavLink></p>
         </div>
       </form>
       <div className="divider w-11/12 mx-auto">OR</div>
-      <button onClick={handleGoogleLogin} className="btn bg-green-800 text-white w-11/12 mx-auto mt-6"><i className="fa-brands fa-google"></i>Google Login</button>
+      <button onClick={handleGoogleLogin} className="btn bg-green-800 text-white hover:bg-[#A8E05C] hover:text-black w-11/12 mx-auto mt-2"><i className="fa-brands fa-google"></i>Google Login</button>
     </div>
   </div>
 </div>

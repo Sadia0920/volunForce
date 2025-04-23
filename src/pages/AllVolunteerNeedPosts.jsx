@@ -49,7 +49,7 @@ export default function AllVolunteerNeedPosts() {
       </div>
 
   <div className='w-6/12 md:w-5/12 lg:w-4/12 mx-auto mb-6'>
-  <button className='btn bg-green-800 text-white w-full' onClick={toggleLayout}>
+  <button className='btn bg-green-800 text-white hover:bg-[#A8E05C] hover:text-black w-full' onClick={toggleLayout}>
         {isTableLayout ? "Switch to Card Layout" : "Switch to Table Layout "}
         {isTableLayout ? <i className="fa-regular fa-credit-card"></i> :  <i className="fa-solid fa-table"></i>}
       </button>
