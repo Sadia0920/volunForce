@@ -3,10 +3,13 @@ import { Helmet } from 'react-helmet-async';
 
 export default function EmmasStory() {
   return (
-    <div className='p-16 my-7 bg-[rgb(255,111,0,0.2)] w-10/12 mx-auto rounded-xl'>
+    <div className='p-16 my-7 bg-[rgb(255,111,0,0.3)] w-10/12 mx-auto rounded-xl'>
       <Helmet>
         <title>VolunForce | Emma's Story</title>
       </Helmet>
+      <div className='text-center'>
+      <i className="fa-solid fa-hand-sparkles text-4xl"></i>
+      </div>
       <h1 className='text-center text-3xl font-bold'>"Building Brighter Futures: Emma’s Story of Teaching Kids</h1>
       <p className='text-lg mt-7 font-medium'>Emma's journey as a volunteer teacher is a testament to the transformative power of education. Passionate about making a difference, Emma joined a local after-school program to teach underprivileged children. What started as a weekend commitment quickly became a life-changing experience for her and the young minds she inspired.
 <br></br>
