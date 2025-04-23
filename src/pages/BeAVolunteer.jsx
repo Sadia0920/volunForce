@@ -194,7 +194,7 @@ export default function BeAVolunteer() {
       </div>
     </div>        
     <div className='mt-6'>
-      <input type="submit" value="Request" className="btn w-full font-bold border-white text-white bg-green-800" />
+      <input type="submit" value="Request" className="btn w-full font-bold bg-green-800 text-white hover:bg-[#A8E05C] hover:text-black" />
     </div>
     </form>
     </div>
