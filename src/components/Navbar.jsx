@@ -20,7 +20,7 @@ export default function Navbar() {
     }
   return (
     <div className='bg-[#A8E05C] text-[rgb(51,51,51)] sticky top-0 z-10'>
-    <div className="navbar w-10/12 mx-auto">
+    <div className="navbar w-full md:w-10/12 mx-auto">
     <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -96,12 +96,14 @@ export default function Navbar() {
       :
       <>
       <div className='flex md:flex-row flex-col'>
-      <Link to='/login' className="btn mr-2 md:mb-0 mb-4">Login</Link>
+      <Link to='/login' className="btn md:mr-2 md:mb-0 mb-2">Login</Link>
       <Link to='/register' className="btn">Register</Link>
       </div>
       </>
-}
-      <ThemeController></ThemeController>
+}     <div className="hidden md:block">
+<ThemeController></ThemeController>
+</div>
+     
   </div>
 </div>
 <Tooltip id="my-tooltip"/> 
